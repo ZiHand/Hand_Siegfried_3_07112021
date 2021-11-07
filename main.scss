@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Shrikhand&display=swap");
+
+$primary_color: #9356dc;
+$secondary_color: #ff79da;
+$tertiary_color: #99e2d0;
+$footer_back_color: #353535;
+
+$roboto_font: "Roboto", sans-serif;
+$shrikhand_font: "Shrikhand", cursive;
+
+body {
+  font-family: $roboto_font;
+  font-family: $shrikhand_font;
+  margin: 0px;
+  padding: 0px;
+}
+
+.main_container {
+  display: flex;
+  min-width: 100%;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+
+  .logo_container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 50%;
+      min-width: 100px;
+    }
+  }
+}
+
+footer {
+  background-color: $footer_back_color;
+
+  .logo_footer {
+    img {
+      margin-left: 10px;
+      margin-top: 10px;
+      width: 20%;
+      min-width: 100px;
+
+      fill: white;
+    }
+  }
+}
+
+
