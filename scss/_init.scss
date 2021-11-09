@@ -42,3 +42,24 @@ body {
   min-width: 100%;
   flex-direction: column;
 }
+
+// ====================================================
+//                   Mixins
+// ====================================================
+@mixin default_btn {
+  align-items: center;
+  max-width: 70%;
+  background: $default_gradian;
+  border: 0px;
+  border-radius: 15px;
+  height: 40px;
+  width: 200px;
+  color: white;
+  box-shadow: $shadow;
+}
+
+@mixin scaled_image {
+  object-fit: cover;
+  width: 100%;
+  max-height: 200px;
+}

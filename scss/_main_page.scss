@@ -20,15 +20,7 @@
   }
 
   .explore_btn {
-    // to do : use mixin
-    max-width: 70%;
-    background: $default_gradian;
-    border: 0px;
-    border-radius: 15px;
-    height: 40px;
-    width: 200px;
-    color: white;
-    box-shadow: $shadow;
+    @include default_btn;
   }
 }
 
@@ -111,10 +103,7 @@
       overflow: hidden;
 
       img.scaled {
-        // to do use mixin
-        object-fit: cover;
-        width: 100%;
-        max-height: 200px;
+        @include scaled_image;
       }
 
       .restaurant_img {
