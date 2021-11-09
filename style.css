@@ -250,6 +250,10 @@ footer p {
   /* reset Font Awesome's display:inline-block */
 }
 
+.menu_main {
+  background-color: #f6f6f6;
+}
+
 .main_pict img {
   object-fit: cover;
   width: 100%;
