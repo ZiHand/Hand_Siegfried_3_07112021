@@ -159,6 +159,7 @@
             &:hover {
               &:before {
                 background: $default_gradian;
+                background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 display: initial; /* reset Font Awesome's display:inline-block */
