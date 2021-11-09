@@ -253,6 +253,7 @@ footer p {
 .main_pict img {
   object-fit: cover;
   width: 100%;
+  max-height: 200px;
 }
 
 .menu_main_container {
@@ -327,6 +328,25 @@ footer p {
   align-items: end;
   display: inline-flex;
   font-weight: bold;
+}
+.menu_main_container .order_div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.menu_main_container .order_div .order_btn {
+  align-items: center;
+  max-width: 70%;
+  background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
+  border: 0px;
+  border-radius: 15px;
+  height: 40px;
+  width: 200px;
+  color: white;
+  box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
 }
 
 /*# sourceMappingURL=style.css.map */
