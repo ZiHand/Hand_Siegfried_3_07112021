@@ -8,6 +8,22 @@
 .main_pict {
   img {
     @include scaled_image;
+    opacity: 0;
+    @keyframes scaled_image_transition {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    // 1- animation-name
+    // 2- animation-duration
+    // 3- animation-timing-function
+    // 4- animation-delay
+    // 5- animation-fill-mode
+    animation: scaled_image_transition 0.8s ease-in 0s both;
   }
 }
 
@@ -71,13 +87,7 @@
           margin-bottom: 20px;
           opacity: 0;
 
-          // 1- animation-name
-          // 2- animation-duration
-          // 3- animation-timing-function
-          // 4- animation-delay
-          // 5- animation-fill-mode
-          animation: transition 1s ease-in-out 0.1s both;
-          @keyframes transition {
+          @keyframes meal_item_transition {
             0% {
               margin-top: 20px;
               opacity: 0;
@@ -88,8 +98,16 @@
             }
           }
 
+          // 1- animation-name
+          // 2- animation-duration
+          // 3- animation-timing-function
+          // 4- animation-delay
+          // 5- animation-fill-mode
+          animation: meal_item_transition 1s ease-in-out 0.1s both;
+
           .meal_details {
-            min-width: 80%;
+            width: 80%;
+            min-width: 60%;
 
             .meal_header {
               font-weight: bold;
@@ -110,9 +128,50 @@
             display: inline-flex;
             font-weight: bold;
           }
+
+          .meal_checked {
+            width: 0px;
+            opacity: 0;
+
+            @keyframes meal_price_transition {
+              0% {
+                width: 0px;
+                opacity: 0;
+              }
+              100% {
+                width: 50px;
+                opacity: 1;
+              }
+            }
+
+            &:focus {
+              // 1- animation-name
+              // 2- animation-duration
+              // 3- animation-timing-function
+              // 4- animation-delay
+              // 5- animation-fill-mode
+              animation: meal_price_transition 1s ease-in-out 0.1s both;
+            }
+
+            animation: meal_price_transition 1s ease-in-out 0.1s both;
+          }
         }
       }
     }
+  }
+
+  @keyframes meal_price_transition {
+    0% {
+      width: 0px;
+      opacity: 0;
+    }
+    100% {
+      width: 50px;
+      opacity: 1;
+    }
+  }
+  .meal_item:active {
+    animation: meal_price_transition 1s ease-in-out 0.1s both;
   }
 
   .order_div {

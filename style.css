@@ -20,9 +20,10 @@ body {
 .main_container {
   display: flex;
   flex-direction: column;
-  max-width: 992px;
+  max-width: 700px;
   padding: 0px;
   margin: auto;
+  overflow: hidden;
 }
 
 header {
@@ -284,6 +285,16 @@ footer p {
   object-fit: cover;
   width: 100%;
   max-height: 200px;
+  opacity: 0;
+  animation: scaled_image_transition 0.8s ease-in 0s both;
+}
+@keyframes scaled_image_transition {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .menu_main_container {
@@ -340,9 +351,9 @@ footer p {
   padding: 0px 10px 0px 10px;
   margin-bottom: 20px;
   opacity: 0;
-  animation: transition 1s ease-in-out 0.1s both;
+  animation: meal_item_transition 1s ease-in-out 0.1s both;
 }
-@keyframes transition {
+@keyframes meal_item_transition {
   0% {
     margin-top: 20px;
     opacity: 0;
@@ -353,7 +364,8 @@ footer p {
   }
 }
 .menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details {
-  min-width: 80%;
+  width: 80%;
+  min-width: 60%;
 }
 .menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details .meal_header {
   font-weight: bold;
@@ -370,6 +382,37 @@ footer p {
   align-items: end;
   display: inline-flex;
   font-weight: bold;
+}
+.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_checked {
+  width: 0px;
+  opacity: 0;
+  animation: meal_price_transition 1s ease-in-out 0.1s both;
+}
+@keyframes meal_price_transition {
+  0% {
+    width: 0px;
+    opacity: 0;
+  }
+  100% {
+    width: 50px;
+    opacity: 1;
+  }
+}
+.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_checked:focus {
+  animation: meal_price_transition 1s ease-in-out 0.1s both;
+}
+@keyframes meal_price_transition {
+  0% {
+    width: 0px;
+    opacity: 0;
+  }
+  100% {
+    width: 50px;
+    opacity: 1;
+  }
+}
+.menu_main_container .meal_item:active {
+  animation: meal_price_transition 1s ease-in-out 0.1s both;
 }
 .menu_main_container .order_div {
   display: flex;
