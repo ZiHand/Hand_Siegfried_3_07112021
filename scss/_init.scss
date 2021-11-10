@@ -39,8 +39,10 @@ body {
 
 .main_container {
   display: flex;
-  min-width: 100%;
   flex-direction: column;
+  max-width: 992px;
+  padding: 0px;
+  margin: auto;
 }
 
 // ====================================================
@@ -57,9 +59,10 @@ body {
   color: white;
   box-shadow: $shadow;
   transform: scale(1);
-  transition: transform 400ms;
+  transition: scale, 400ms;
   &:hover {
     transform: scale(1.15);
+    cursor: pointer;
   }
 }
 

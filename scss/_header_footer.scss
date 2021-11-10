@@ -5,6 +5,7 @@ header {
   width: 100%;
   box-shadow: $shadow;
   z-index: 2;
+  overflow: hidden;
 
   .logo_container {
     width: 100%;
