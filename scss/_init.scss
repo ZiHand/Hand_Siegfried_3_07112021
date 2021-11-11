@@ -51,12 +51,12 @@ body {
 // ====================================================
 @mixin default_btn {
   align-items: center;
-  max-width: 70%;
+  max-width: 80%;
   background: $default_gradian;
   border: 0px;
   border-radius: 15px;
   height: 40px;
-  width: 200px;
+  width: 250px;
   color: white;
   box-shadow: $shadow;
   transform: scale(1);

@@ -138,12 +138,12 @@ footer p {
 }
 .description_container .explore_btn {
   align-items: center;
-  max-width: 70%;
+  max-width: 80%;
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
   border: 0px;
   border-radius: 15px;
   height: 40px;
-  width: 200px;
+  width: 250px;
   color: white;
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
   transform: scale(1);
@@ -393,7 +393,10 @@ footer p {
   background-color: #99e2d0;
   border-radius: 0px 15px 15px 0px;
 }
-@keyframes meal_price_transition {
+.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_checked span {
+  display: none;
+}
+@keyframes meal_price_transition_open {
   0% {
     width: 0px;
   }
@@ -401,8 +404,22 @@ footer p {
     width: 80px;
   }
 }
+@keyframes meal_price_transition_close {
+  0% {
+    width: 80px;
+  }
+  100% {
+    width: 0px;
+  }
+}
+.menu_main_container .meal_item:hover {
+  cursor: pointer;
+}
 .menu_main_container .meal_item:hover .meal_checked {
-  animation: meal_price_transition 0.4s ease-in-out 0s both;
+  animation: meal_price_transition_open 0.4s ease-in-out 0s both;
+}
+.menu_main_container .meal_item:not(:hover) .meal_checked {
+  animation: meal_price_transition_close 0.4s ease-in-out 0s both;
 }
 .menu_main_container .order_div {
   display: flex;
@@ -414,12 +431,12 @@ footer p {
 }
 .menu_main_container .order_div .order_btn {
   align-items: center;
-  max-width: 70%;
+  max-width: 80%;
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
   border: 0px;
   border-radius: 15px;
   height: 40px;
-  width: 200px;
+  width: 250px;
   color: white;
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
   transform: scale(1);
