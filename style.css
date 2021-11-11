@@ -96,16 +96,19 @@ footer p {
   padding: 10px 0px 0px 0px;
   background-color: #eaeaea;
 }
-.form_hosting .form_input_text {
+
+.form_input_text {
   text-align: center;
   justify-content: center;
   padding-bottom: 5px;
 }
-.form_hosting .find_span {
+
+.find_span {
   width: 30px;
   color: #353535;
 }
-.form_hosting #location {
+
+#location {
   width: 150px;
   background-color: #eaeaea;
   border: 0px;
@@ -154,12 +157,24 @@ footer p {
   flex-direction: column;
   padding: 10px 10px 10px 10px;
 }
-.functionality_container .func_list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+@keyframes func_item_hover_transition {
+  0% {
+    background-color: white;
+  }
+  100% {
+    background-color: #f5edff;
+  }
 }
-.functionality_container .func_list .func_item {
+@keyframes func_item_hover_transition2 {
+  0% {
+    color: white;
+  }
+  100% {
+    color: #9356dc;
+  }
+}
+.func_item {
   display: flex;
   flex-direction: row;
   width: 70%;
@@ -169,15 +184,30 @@ footer p {
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
   border-radius: 15px;
 }
-.functionality_container .func_list .func_item .item_icon {
+.func_item:hover {
+  cursor: pointer;
+  animation: func_item_hover_transition 0.8s ease-out 0s both;
+}
+.func_item:hover > .item_icon {
+  animation: func_item_hover_transition2 0.8s ease-in 0s both;
+}
+.func_item p {
+  text-align: start;
+}
+
+.func_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item_icon {
   margin-right: 20px;
   margin-left: 0px;
   width: 16px;
 }
-.functionality_container .func_list .func_item p {
-  text-align: start;
-}
-.functionality_container .func_list .func_item .circle_span {
+
+.circle_span {
   background-color: #9356dc;
   border-radius: 50%;
   width: 25px;
@@ -196,11 +226,13 @@ footer p {
   padding: 10px 10px 10px 10px;
   background-color: #f6f6f6;
 }
-.restaurants_container #restaurant_list {
+
+#restaurant_list {
   display: flex;
   flex-direction: column;
 }
-.restaurants_container #restaurant_list .restaurant_figure {
+
+.restaurant_figure {
   background-color: white;
   border-radius: 15px;
   margin: 10px;
@@ -210,16 +242,61 @@ footer p {
   max-height: 300px;
   width: auto;
   min-width: 150px;
-  /* Keep this ! */
   overflow: hidden;
   position: relative;
 }
-.restaurants_container #restaurant_list .restaurant_figure img.scaled {
+.restaurant_figure img.scaled {
   object-fit: cover;
   width: 100%;
   max-height: 200px;
 }
-.restaurants_container #restaurant_list .restaurant_figure .new {
+.restaurant_figure figcaption {
+  display: flex;
+  flex-direction: row;
+  min-height: 50px;
+  margin: 0px 10px 0px 10px;
+}
+
+@keyframes rest_fig_icon_full_hover {
+  0% {
+    background: white;
+  }
+  100% {
+    background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial;
+    /* reset Font Awesome's display:inline-block */
+  }
+}
+.rest_fig_icon {
+  min-width: 20%;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+.rest_fig_icon i {
+  font-size: 30px;
+}
+.rest_fig_icon i:hover:before {
+  background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+  /* reset Font Awesome's display:inline-block */
+}
+
+.heart_icon_empty::before {
+  display: block;
+}
+
+.heart_icon_full::before {
+  display: none;
+}
+
+.new {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -232,42 +309,18 @@ footer p {
   margin: auto;
   /* Important */
 }
-.restaurants_container #restaurant_list .restaurant_figure figcaption {
-  display: flex;
-  flex-direction: row;
-  min-height: 50px;
-  margin: 0px 10px 0px 10px;
-}
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_content {
+
+.rest_fig_content {
   min-width: 80%;
 }
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_content h3 {
+.rest_fig_content h3 {
   font-weight: bold;
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 5px;
 }
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_content p {
+.rest_fig_content p {
   margin-top: 10px;
-}
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon {
-  min-width: 20%;
-  justify-content: center;
-  align-items: center;
-  display: inline-flex;
-}
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_empty,
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_full {
-  font-size: 30px;
-}
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_empty:hover:before,
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_full:hover:before {
-  background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: initial;
-  /* reset Font Awesome's display:inline-block */
 }
 
 .menu_main {

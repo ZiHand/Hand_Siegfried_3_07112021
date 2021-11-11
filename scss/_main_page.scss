@@ -6,27 +6,27 @@
   justify-content: center;
   padding: 10px 0px 0px 0px;
   background-color: #eaeaea;
+}
 
-  .form_input_text {
-    text-align: center;
-    justify-content: center;
-    padding-bottom: 5px;
-  }
+.form_input_text {
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
 
-  .find_span {
-    width: 30px;
-    color: #353535;
-  }
+.find_span {
+  width: 30px;
+  color: #353535;
+}
 
-  #location {
-    width: 150px;
-    background-color: #eaeaea;
-    border: 0px;
-    color: red !important; // ?? TODO: check this
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-  }
+#location {
+  width: 150px;
+  background-color: #eaeaea;
+  border: 0px;
+  color: red !important; // ?? TODO: check this
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
 }
 
 // ====================================================
@@ -62,48 +62,78 @@
   display: flex;
   flex-direction: column;
   padding: 10px 10px 10px 10px;
+}
 
-  .func_list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .func_item {
-      display: flex;
-      flex-direction: row;
-      width: 70%;
-      margin-bottom: 20px;
-
-      align-items: center;
-      justify-content: left;
-
-      box-shadow: $shadow;
-      border-radius: 15px;
-
-      .item_icon {
-        margin-right: 20px;
-        margin-left: 0px;
-        width: 16px;
-      }
-
-      p {
-        text-align: start;
-      }
-
-      .circle_span {
-        background-color: $primary_color;
-        border-radius: 50%;
-        width: 25px;
-        height: 25px;
-        position: relative;
-        left: -15px;
-        justify-content: center;
-        display: inline-flex;
-        align-items: center;
-        color: white;
-      }
-    }
+// =====================
+@keyframes func_item_hover_transition {
+  0% {
+    background-color: white;
   }
+  100% {
+    background-color: #f5edff;
+  }
+}
+// =====================
+@keyframes func_item_hover_transition2 {
+  0% {
+    color: white;
+  }
+  100% {
+    color: $primary_color;
+  }
+}
+
+// =====================
+.func_item {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: left;
+  box-shadow: $shadow;
+  border-radius: 15px;
+
+  &:hover {
+    cursor: pointer;
+    animation: func_item_hover_transition 0.8s ease-out 0s both;
+  }
+
+  &:hover > .item_icon {
+    animation: func_item_hover_transition2 0.8s ease-in 0s both;
+  }
+
+  p {
+    text-align: start;
+  }
+}
+
+// =====================
+.func_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// =====================
+.item_icon {
+  margin-right: 20px;
+  margin-left: 0px;
+  width: 16px;
+}
+
+// =====================
+.circle_span {
+  background-color: $primary_color;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  left: -15px;
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  color: white;
 }
 
 // ====================================================
@@ -114,86 +144,111 @@
   flex-direction: column;
   padding: 10px 10px 10px 10px;
   background-color: $gray_back_color;
+}
 
-  #restaurant_list {
+// =====================
+#restaurant_list {
+  display: flex;
+  flex-direction: column;
+}
+
+// =====================
+.restaurant_figure {
+  background-color: white;
+  border-radius: 15px;
+  margin: 10px;
+  margin-bottom: 20px;
+  box-shadow: $shadow;
+  height: 280px;
+  max-height: 300px;
+  width: auto;
+  min-width: 150px;
+  overflow: hidden;
+  position: relative;
+
+  img.scaled {
+    @include scaled_image;
+  }
+
+  figcaption {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    min-height: 50px;
+    margin: 0px 10px 0px 10px;
+  }
+}
 
-    .restaurant_figure {
-      background-color: white;
-      border-radius: 15px;
-      margin: 10px;
-      margin-bottom: 20px;
-      box-shadow: $shadow;
-      height: 280px;
-      max-height: 300px;
-      width: auto;
-      min-width: 150px;
+// =====================
+@keyframes rest_fig_icon_full_hover {
+  0% {
+    background: white;
+  }
+  100% {
+    background: $default_gradian;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial; /* reset Font Awesome's display:inline-block */
+  }
+}
 
-      /* Keep this ! */
-      overflow: hidden;
-      position: relative;
+.rest_fig_icon {
+  min-width: 20%;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
 
-      img.scaled {
-        @include scaled_image;
-      }
+  i {
+    font-size: 30px;
 
-      .new {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 80px;
-        height: 25px;
-        background-color: $tertiary_color;
-        text-align: center;
-        vertical-align: middle;
-        color: #008766;
-        margin: auto; /* Important */
-      }
-
-      figcaption {
-        display: flex;
-        flex-direction: row;
-        min-height: 50px;
-        margin: 0px 10px 0px 10px;
-
-        .rest_fig_content {
-          min-width: 80%;
-
-          h3 {
-            font-weight: bold;
-            font-size: 16px;
-            margin-top: 10px;
-            margin-bottom: 5px;
-          }
-
-          p {
-            margin-top: 10px;
-          }
-        }
-
-        .rest_fig_icon {
-          min-width: 20%;
-          justify-content: center;
-          align-items: center;
-          display: inline-flex;
-
-          .heart_icon_empty,
-          .heart_icon_full {
-            font-size: 30px;
-
-            &:hover {
-              &:before {
-                background: $default_gradian;
-                background-clip: text;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                display: initial; /* reset Font Awesome's display:inline-block */
-              }
-            }
-          }
-        }
+    &:hover {
+      &:before {
+        background: $default_gradian;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: initial; /* reset Font Awesome's display:inline-block */
       }
     }
   }
 }
+
+.heart_icon_empty::before {
+  display: block;
+}
+
+.heart_icon_full::before {
+  display: none;
+}
+
+// =====================
+.new {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 25px;
+  background-color: $tertiary_color;
+  text-align: center;
+  vertical-align: middle;
+  color: #008766;
+  margin: auto; /* Important */
+}
+
+// =====================
+.rest_fig_content {
+  min-width: 80%;
+
+  h3 {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+}
+
+// =====================
