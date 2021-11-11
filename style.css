@@ -367,6 +367,11 @@ footer p {
   width: 80%;
   min-width: 60%;
 }
+.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details .meal_header {
   font-weight: bold;
   margin-top: 10px;

@@ -109,6 +109,12 @@
             width: 80%;
             min-width: 60%;
 
+            p {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
             .meal_header {
               font-weight: bold;
               margin-top: 10px;
