@@ -83,7 +83,7 @@
           width: auto;
           border-radius: 15px;
           box-shadow: $shadow;
-          padding: 0px 10px 0px 10px;
+          padding: 0px 0px 0px 10px;
           margin-bottom: 20px;
           opacity: 0;
 
@@ -122,7 +122,7 @@
           }
 
           .meal_price {
-            min-width: 20%;
+            min-width: 15%;
             justify-content: center;
             align-items: end;
             display: inline-flex;
@@ -131,29 +131,8 @@
 
           .meal_checked {
             width: 0px;
-            opacity: 0;
-
-            @keyframes meal_price_transition {
-              0% {
-                width: 0px;
-                opacity: 0;
-              }
-              100% {
-                width: 50px;
-                opacity: 1;
-              }
-            }
-
-            &:focus {
-              // 1- animation-name
-              // 2- animation-duration
-              // 3- animation-timing-function
-              // 4- animation-delay
-              // 5- animation-fill-mode
-              animation: meal_price_transition 1s ease-in-out 0.1s both;
-            }
-
-            animation: meal_price_transition 1s ease-in-out 0.1s both;
+            background-color: $tertiary_color;
+            border-radius: 0px 15px 15px 0px;
           }
         }
       }
@@ -163,15 +142,16 @@
   @keyframes meal_price_transition {
     0% {
       width: 0px;
-      opacity: 0;
     }
     100% {
-      width: 50px;
-      opacity: 1;
+      width: 80px;
     }
   }
-  .meal_item:active {
-    animation: meal_price_transition 1s ease-in-out 0.1s both;
+
+  .meal_item:hover {
+    .meal_checked {
+      animation: meal_price_transition 0.4s ease-in-out 0s both;
+    }
   }
 
   .order_div {
