@@ -31,30 +31,9 @@ header {
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
   z-index: 2;
   overflow: hidden;
+  position: relative;
 }
-header .logo_container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
-}
-header .logo_container .logo_left {
-  justify-content: right;
-  display: inline-flex;
-  align-items: center;
-}
-header .logo_container .logo_left span {
-  font-size: 20px;
-  transform: scale(1);
-  transition: transform 400ms;
-}
-header .logo_container .logo_left span:hover {
-  transform: scale(1.15);
-}
-header .logo_container .logo_center {
-  align-items: center;
-  justify-content: center;
-}
-header .logo_container .logo_center img {
+header img {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -62,25 +41,16 @@ header .logo_container .logo_center img {
   margin-bottom: 10px;
   min-width: 100px;
 }
-
-.city_location {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0px 10px 0px;
-  background-color: #eaeaea;
+header i {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  font-size: 20px;
+  transform: scale(1);
+  transition: transform 400ms;
 }
-.city_location .find_span {
-  width: 30px;
-  color: #353535;
-}
-.city_location #location {
-  width: 150px;
-  background-color: #eaeaea;
-  border: 0px;
-  color: red !important;
-  font-weight: bold;
+header i:hover {
+  transform: scale(1.15);
 }
 
 footer {
@@ -118,6 +88,31 @@ footer p {
   align-items: center;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.form_hosting {
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px 0px 0px;
+  background-color: #eaeaea;
+}
+.form_hosting .form_input_text {
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 5px;
+}
+.form_hosting .find_span {
+  width: 30px;
+  color: #353535;
+}
+.form_hosting #location {
+  width: 150px;
+  background-color: #eaeaea;
+  border: 0px;
+  color: red !important;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
 }
 
 .description_container {
@@ -217,17 +212,14 @@ footer p {
   min-width: 150px;
   /* Keep this ! */
   overflow: hidden;
+  position: relative;
 }
 .restaurants_container #restaurant_list .restaurant_figure img.scaled {
   object-fit: cover;
   width: 100%;
   max-height: 200px;
 }
-.restaurants_container #restaurant_list .restaurant_figure .restaurant_img {
-  position: relative;
-}
-.restaurants_container #restaurant_list .restaurant_figure .restaurant_img .new {
-  display: flex;
+.restaurants_container #restaurant_list .restaurant_figure .new {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -236,12 +228,9 @@ footer p {
   background-color: #99e2d0;
   text-align: center;
   vertical-align: middle;
-}
-.restaurants_container #restaurant_list .restaurant_figure .restaurant_img .new p {
   color: #008766;
   margin: auto;
   /* Important */
-  text-align: center;
 }
 .restaurants_container #restaurant_list .restaurant_figure figcaption {
   display: flex;
@@ -252,8 +241,10 @@ footer p {
 .restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_content {
   min-width: 80%;
 }
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_content .caption_header {
+.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_content h3 {
   font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
   margin-bottom: 5px;
 }
 .restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_content p {
@@ -265,10 +256,12 @@ footer p {
   align-items: center;
   display: inline-flex;
 }
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon span {
+.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_empty,
+.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_full {
   font-size: 30px;
 }
-.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon span:hover:before {
+.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_empty:hover:before,
+.restaurants_container #restaurant_list .restaurant_figure figcaption .rest_fig_icon .heart_icon_full:hover:before {
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -280,8 +273,7 @@ footer p {
 .menu_main {
   background-color: #f6f6f6;
 }
-
-.main_pict img {
+.menu_main img {
   object-fit: cover;
   width: 100%;
   max-height: 200px;
@@ -312,10 +304,10 @@ footer p {
   flex-direction: row;
   font-family: "Shrikhand", cursive;
 }
-.menu_main_container .menu_header .menu_title {
+.menu_main_container .menu_header h2 {
   min-width: 80%;
 }
-.menu_main_container .menu_header .menu_span {
+.menu_main_container .menu_header i {
   font-size: 30px;
   min-width: 20%;
   justify-content: center;
@@ -393,7 +385,7 @@ footer p {
   background-color: #99e2d0;
   border-radius: 0px 15px 15px 0px;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_checked span {
+.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_checked i {
   display: none;
 }
 @keyframes meal_price_transition_open {

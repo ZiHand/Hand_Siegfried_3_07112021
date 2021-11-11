@@ -1,4 +1,35 @@
 // ====================================================
+//                   form_hosting
+// ====================================================
+.form_hosting {
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px 0px 0px;
+  background-color: #eaeaea;
+
+  .form_input_text {
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
+
+  .find_span {
+    width: 30px;
+    color: #353535;
+  }
+
+  #location {
+    width: 150px;
+    background-color: #eaeaea;
+    border: 0px;
+    color: red !important; // ?? TODO: check this
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// ====================================================
 //                   description_container
 // ====================================================
 .description_container {
@@ -101,31 +132,23 @@
 
       /* Keep this ! */
       overflow: hidden;
+      position: relative;
 
       img.scaled {
         @include scaled_image;
       }
 
-      .restaurant_img {
-        position: relative;
-
-        .new {
-          display: flex;
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          width: 80px;
-          height: 25px;
-          background-color: $tertiary_color;
-          text-align: center;
-          vertical-align: middle;
-
-          p {
-            color: #008766;
-            margin: auto; /* Important */
-            text-align: center;
-          }
-        }
+      .new {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 80px;
+        height: 25px;
+        background-color: $tertiary_color;
+        text-align: center;
+        vertical-align: middle;
+        color: #008766;
+        margin: auto; /* Important */
       }
 
       figcaption {
@@ -137,8 +160,10 @@
         .rest_fig_content {
           min-width: 80%;
 
-          .caption_header {
+          h3 {
             font-weight: bold;
+            font-size: 16px;
+            margin-top: 10px;
             margin-bottom: 5px;
           }
 
@@ -153,7 +178,8 @@
           align-items: center;
           display: inline-flex;
 
-          span {
+          .heart_icon_empty,
+          .heart_icon_full {
             font-size: 30px;
 
             &:hover {
