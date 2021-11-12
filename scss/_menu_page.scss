@@ -24,6 +24,7 @@
     animation: scaled_image_transition 0.8s ease-in 0s both;
   }
 }
+
 // ====================================================
 //                      Menu Page
 // ====================================================
@@ -36,160 +37,167 @@
   top: -20px;
   border-radius: 15px 15px 0px 0px;
   padding: 0px 20px 0px 20px;
+}
 
-  .menu_header {
-    display: flex;
-    flex-direction: row;
-    font-family: $shrikhand_font;
+.menu_header {
+  display: flex;
+  flex-direction: row;
+  font-family: $shrikhand_font;
 
-    h2 {
-      min-width: 80%;
-    }
-
-    i {
-      font-size: 30px;
-      min-width: 20%;
-      justify-content: center;
-      align-items: center;
-      display: inline-flex;
-    }
+  h2 {
+    min-width: 80%;
   }
 
-  .meal_category_list {
-    display: flex;
-    flex-direction: column;
-
-    .meal_category {
-      position: relative;
-      .meal_category_name {
-        &:before {
-          content: "";
-          position: absolute;
-          top: 35px;
-          width: 40px;
-          height: 2px;
-          background-color: $tertiary_color;
-        }
-      }
-
-      .meal_list {
-        display: flex;
-        flex-direction: column;
-
-        .meal_item {
-          display: flex;
-          flex-direction: row;
-          background-color: white;
-          width: auto;
-          border-radius: 15px;
-          box-shadow: $shadow;
-          padding: 0px 0px 0px 10px;
-          margin-bottom: 20px;
-          opacity: 0;
-
-          @keyframes meal_item_transition {
-            0% {
-              margin-top: 20px;
-              opacity: 0;
-            }
-            100% {
-              margin-top: 0px;
-              opacity: 1;
-            }
-          }
-
-          // 1- animation-name
-          // 2- animation-duration
-          // 3- animation-timing-function
-          // 4- animation-delay
-          // 5- animation-fill-mode
-          animation: meal_item_transition 1s ease-in-out 0.1s both;
-
-          .meal_details {
-            width: 80%;
-            min-width: 60%;
-
-            p {
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-            }
-
-            .meal_header {
-              font-weight: bold;
-              margin-top: 10px;
-              margin-bottom: 5px;
-            }
-
-            .meal_desc {
-              margin-top: 5px;
-              font-size: 12px;
-            }
-          }
-
-          .meal_price {
-            min-width: 15%;
-            justify-content: center;
-            align-items: end;
-            display: inline-flex;
-            font-weight: bold;
-          }
-
-          .meal_checked {
-            width: 0px;
-            background-color: $tertiary_color;
-            border-radius: 0px 15px 15px 0px;
-
-            i {
-              display: none;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  @keyframes meal_price_transition_open {
-    0% {
-      width: 0px;
-    }
-    100% {
-      width: 80px;
-    }
-  }
-
-  @keyframes meal_price_transition_close {
-    0% {
-      width: 80px;
-    }
-    100% {
-      width: 0px;
-    }
-  }
-
-  .meal_item:hover {
-    cursor: pointer;
-    .meal_checked {
-      animation: meal_price_transition_open 0.4s ease-in-out 0s both;
-    }
-  }
-
-  .meal_item:not(:hover) {
-    .meal_checked {
-      animation: meal_price_transition_close 0.4s ease-in-out 0s both;
-    }
-  }
-
-  .order_div {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  i {
+    font-size: 30px;
+    min-width: 20%;
+    justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    display: inline-flex;
+  }
+}
 
-    .order_btn {
-      @include default_btn;
-    }
+.meal_category_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.meal_item:hover {
+  cursor: pointer;
+  .meal_checked {
+    animation: meal_price_transition_open 0.4s ease-in-out 0s both;
+  }
+}
+
+.meal_item:not(:hover) {
+  .meal_checked {
+    animation: meal_price_transition_close 0.4s ease-in-out 0s both;
+  }
+}
+
+.meal_category {
+  position: relative;
+}
+
+.meal_category_name {
+  &:before {
+    content: "";
+    position: absolute;
+    top: 35px;
+    width: 40px;
+    height: 2px;
+    background-color: $tertiary_color;
+  }
+}
+
+.meal_list {
+  display: flex;
+  flex-direction: column;
+}
+
+.meal_item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: auto;
+  border-radius: 15px;
+  box-shadow: $shadow;
+  padding: 0px 0px 0px 10px;
+  margin-bottom: 20px;
+  opacity: 0;
+
+  // 1- animation-name
+  // 2- animation-duration
+  // 3- animation-timing-function
+  // 4- animation-delay
+  // 5- animation-fill-mode
+  animation: meal_item_transition 1s ease-in-out 0.1s both;
+}
+
+.meal_details {
+  width: 80%;
+  min-width: 60%;
+
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .meal_header {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .meal_desc {
+    margin-top: 5px;
+    font-size: 12px;
+  }
+}
+
+.meal_price {
+  min-width: 15%;
+  justify-content: center;
+  align-items: end;
+  display: inline-flex;
+  font-weight: bold;
+}
+
+.meal_checked {
+  width: 0px;
+  background-color: $tertiary_color;
+  border-radius: 0px 15px 15px 0px;
+
+  i {
+    display: none;
+  }
+}
+
+// ====================================================
+//                      Order
+// ====================================================
+.order_div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.order_btn {
+  @include default_btn;
+}
+
+// ====================================================
+//                      keyframes
+// ====================================================
+@keyframes meal_price_transition_open {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 80px;
+  }
+}
+
+@keyframes meal_price_transition_close {
+  0% {
+    width: 80px;
+  }
+  100% {
+    width: 0px;
+  }
+}
+
+@keyframes meal_item_transition {
+  0% {
+    margin-top: 20px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
   }
 }

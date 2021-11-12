@@ -26,6 +26,14 @@ body {
   overflow: hidden;
 }
 
+@keyframes heart_fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 header {
   width: 100%;
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
@@ -60,12 +68,24 @@ footer {
   flex-direction: column;
   font-size: 12px;
 }
-footer #logo_footer img {
+footer a {
+  line-height: 25px;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  height: 25px;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  color: white;
+}
+
+#logo_footer img {
   width: 20%;
   min-width: 80px;
   filter: invert(100%) sepia(0%) saturate(7443%) hue-rotate(198deg) brightness(126%) contrast(112%);
 }
-footer .footerline {
+
+.footerline {
   display: flex;
   flex-direction: row;
   color: white;
@@ -73,21 +93,13 @@ footer .footerline {
   align-items: center;
   line-height: 25px;
 }
-footer .footerline span {
+.footerline span {
   width: 20px;
 }
-footer .footerline p {
+.footerline a {
   padding-left: 0px;
   font-family: "Roboto", sans-serif;
-}
-footer p {
-  line-height: 25px;
   color: white;
-  font-family: "Roboto", sans-serif;
-  height: 25px;
-  align-items: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
 .form_hosting {
@@ -135,17 +147,21 @@ footer p {
   margin-top: 0px;
 }
 .description_container .explore_btn {
+  display: inline-block;
   align-items: center;
+  text-align: center;
+  text-decoration: none;
   max-width: 80%;
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
   border: 0px;
   border-radius: 15px;
-  height: 40px;
+  height: 30px;
   width: 250px;
   color: white;
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
   transform: scale(1);
   transition: scale, 400ms;
+  padding-top: 11px;
 }
 .description_container .explore_btn:hover {
   transform: scale(1.15);
@@ -274,12 +290,22 @@ footer p {
   min-width: 20%;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
+  display: flex;
+  width: 30px;
+  margin: auto;
 }
 .rest_fig_icon i {
   font-size: 30px;
 }
-.rest_fig_icon i:hover:before {
+.rest_fig_icon i:hover {
+  cursor: pointer;
+}
+.rest_fig_icon:active > .heart_icon_empty::before {
+  display: none;
+}
+.rest_fig_icon:active > .heart_icon_full::before {
+  display: block;
+  animation: heart_fadeIn 0.4s ease-in 0s both;
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -352,29 +378,44 @@ footer p {
   border-radius: 15px 15px 0px 0px;
   padding: 0px 20px 0px 20px;
 }
-.menu_main_container .menu_header {
+
+.menu_header {
   display: flex;
   flex-direction: row;
   font-family: "Shrikhand", cursive;
 }
-.menu_main_container .menu_header h2 {
+.menu_header h2 {
   min-width: 80%;
 }
-.menu_main_container .menu_header i {
+.menu_header i {
   font-size: 30px;
   min-width: 20%;
   justify-content: center;
   align-items: center;
   display: inline-flex;
 }
-.menu_main_container .meal_category_list {
+
+.meal_category_list {
   display: flex;
   flex-direction: column;
 }
-.menu_main_container .meal_category_list .meal_category {
+
+.meal_item:hover {
+  cursor: pointer;
+}
+.meal_item:hover .meal_checked {
+  animation: meal_price_transition_open 0.4s ease-in-out 0s both;
+}
+
+.meal_item:not(:hover) .meal_checked {
+  animation: meal_price_transition_close 0.4s ease-in-out 0s both;
+}
+
+.meal_category {
   position: relative;
 }
-.menu_main_container .meal_category_list .meal_category .meal_category_name:before {
+
+.meal_category_name:before {
   content: "";
   position: absolute;
   top: 35px;
@@ -382,11 +423,13 @@ footer p {
   height: 2px;
   background-color: #99e2d0;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list {
+
+.meal_list {
   display: flex;
   flex-direction: column;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item {
+
+.meal_item {
   display: flex;
   flex-direction: row;
   background-color: white;
@@ -398,49 +441,73 @@ footer p {
   opacity: 0;
   animation: meal_item_transition 1s ease-in-out 0.1s both;
 }
-@keyframes meal_item_transition {
-  0% {
-    margin-top: 20px;
-    opacity: 0;
-  }
-  100% {
-    margin-top: 0px;
-    opacity: 1;
-  }
-}
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details {
+
+.meal_details {
   width: 80%;
   min-width: 60%;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details p {
+.meal_details p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details .meal_header {
+.meal_details .meal_header {
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 5px;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_details .meal_desc {
+.meal_details .meal_desc {
   margin-top: 5px;
   font-size: 12px;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_price {
+
+.meal_price {
   min-width: 15%;
   justify-content: center;
   align-items: end;
   display: inline-flex;
   font-weight: bold;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_checked {
+
+.meal_checked {
   width: 0px;
   background-color: #99e2d0;
   border-radius: 0px 15px 15px 0px;
 }
-.menu_main_container .meal_category_list .meal_category .meal_list .meal_item .meal_checked i {
+.meal_checked i {
   display: none;
 }
+
+.order_div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.order_btn {
+  display: inline-block;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  max-width: 80%;
+  background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
+  border: 0px;
+  border-radius: 15px;
+  height: 30px;
+  width: 250px;
+  color: white;
+  box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
+  transform: scale(1);
+  transition: scale, 400ms;
+}
+.order_btn:hover {
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
 @keyframes meal_price_transition_open {
   0% {
     width: 0px;
@@ -457,39 +524,15 @@ footer p {
     width: 0px;
   }
 }
-.menu_main_container .meal_item:hover {
-  cursor: pointer;
-}
-.menu_main_container .meal_item:hover .meal_checked {
-  animation: meal_price_transition_open 0.4s ease-in-out 0s both;
-}
-.menu_main_container .meal_item:not(:hover) .meal_checked {
-  animation: meal_price_transition_close 0.4s ease-in-out 0s both;
-}
-.menu_main_container .order_div {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-.menu_main_container .order_div .order_btn {
-  align-items: center;
-  max-width: 80%;
-  background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
-  border: 0px;
-  border-radius: 15px;
-  height: 40px;
-  width: 250px;
-  color: white;
-  box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
-  transform: scale(1);
-  transition: scale, 400ms;
-}
-.menu_main_container .order_div .order_btn:hover {
-  transform: scale(1.15);
-  cursor: pointer;
+@keyframes meal_item_transition {
+  0% {
+    margin-top: 20px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

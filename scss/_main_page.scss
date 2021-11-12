@@ -52,6 +52,7 @@
 
   .explore_btn {
     @include default_btn;
+    padding-top: 11px; // TODO: check this
   }
 }
 
@@ -196,19 +197,31 @@
   min-width: 20%;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
+  display: flex;
+  width: 30px;
+  margin: auto;
 
   i {
     font-size: 30px;
 
     &:hover {
-      &:before {
-        background: $default_gradian;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: initial; /* reset Font Awesome's display:inline-block */
-      }
+      cursor: pointer;
+    }
+  }
+
+  &:active {
+    & > .heart_icon_empty::before {
+      display: none;
+    }
+
+    & > .heart_icon_full::before {
+      display: block;
+      animation: heart_fadeIn 0.4s ease-in 0s both;
+      background: $default_gradian;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: initial; /* reset Font Awesome's display:inline-block */
     }
   }
 }
