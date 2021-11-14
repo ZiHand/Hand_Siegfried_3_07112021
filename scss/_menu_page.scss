@@ -100,27 +100,31 @@
   // 4- animation-delay
   // 5- animation-fill-mode
   animation: meal_item_transition 1s ease-in-out 0s both;
-}
 
-.meal_item:hover {
-  cursor: pointer;
-  .meal_checked > i {
-    // animation: meal_price_transition_open 0.4s ease-in-out 0s both;
-    animation: rotate 0.5s ease-out 0s both;
+  &:hover {
+    cursor: pointer;
+    .meal_price {
+      animation: meal_price_transition_open 0.5s ease-out 0s both;
+    }
+
+    .meal_checked > i {
+      animation: meal_cheched_rotate 0.5s ease-out 0s both;
+    }
   }
-}
 
-.meal_item:not(:hover) {
-  .meal_checked > i {
-    // animation: meal_price_transition_close 0.4s ease-in-out 0s both;
+  &:not(:hover) {
+    .meal_price {
+      animation: meal_price_transition_close 0.4s ease-in-out 0s both;
+    }
   }
 }
 
 .meal_details {
-  width: 80%;
-  min-width: 60%;
+  width: 200px;
+  min-width: 200px; // TODO : may change for desktop
 
-  p {
+  p,
+  h3 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -141,6 +145,8 @@
 .meal_price {
   min-width: 50px;
   max-width: 50px;
+  padding-left: 10px;
+  margin-left: 40px;
   justify-content: center;
   align-items: end;
   font-weight: bold;
@@ -156,11 +162,9 @@
   text-align: center;
 
   i {
-    // display: none;
     position: relative;
     top: calc(50% - 25px);
     color: white;
-    // transform: rotate(180deg);
   }
 }
 
@@ -183,24 +187,6 @@
 // ====================================================
 //                      keyframes
 // ====================================================
-@keyframes meal_price_transition_open {
-  // 0% {
-  //   width: 0px;
-  // }
-  // 100% {
-  //   width: 80px;
-  // }
-}
-
-@keyframes meal_price_transition_close {
-  // 0% {
-  //   width: 80px;
-  // }
-  // 100% {
-  //   width: 0px;
-  // }
-}
-
 @keyframes meal_item_transition {
   0% {
     margin-top: 20px;
@@ -212,7 +198,25 @@
   }
 }
 
-@keyframes rotate {
+@keyframes meal_price_transition_open {
+  0% {
+    margin-left: 65px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes meal_price_transition_close {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 65px;
+  }
+}
+
+@keyframes meal_cheched_rotate {
   0% {
     transform: rotate(0deg);
   }
