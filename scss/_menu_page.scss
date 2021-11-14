@@ -62,19 +62,6 @@
   flex-direction: column;
 }
 
-.meal_item:hover {
-  cursor: pointer;
-  .meal_checked {
-    animation: meal_price_transition_open 0.4s ease-in-out 0s both;
-  }
-}
-
-.meal_item:not(:hover) {
-  .meal_checked {
-    animation: meal_price_transition_close 0.4s ease-in-out 0s both;
-  }
-}
-
 .meal_category {
   position: relative;
 }
@@ -105,13 +92,28 @@
   padding: 0px 0px 0px 10px;
   margin-bottom: 20px;
   opacity: 0;
+  overflow: hidden;
 
   // 1- animation-name
   // 2- animation-duration
   // 3- animation-timing-function
   // 4- animation-delay
   // 5- animation-fill-mode
-  animation: meal_item_transition 1s ease-in-out 0.1s both;
+  animation: meal_item_transition 1s ease-in-out 0s both;
+}
+
+.meal_item:hover {
+  cursor: pointer;
+  .meal_checked > i {
+    // animation: meal_price_transition_open 0.4s ease-in-out 0s both;
+    animation: rotate 0.5s ease-out 0s both;
+  }
+}
+
+.meal_item:not(:hover) {
+  .meal_checked > i {
+    // animation: meal_price_transition_close 0.4s ease-in-out 0s both;
+  }
 }
 
 .meal_details {
@@ -137,20 +139,28 @@
 }
 
 .meal_price {
-  min-width: 15%;
+  min-width: 50px;
+  max-width: 50px;
   justify-content: center;
   align-items: end;
-  display: inline-flex;
   font-weight: bold;
 }
 
 .meal_checked {
-  width: 0px;
+  width: 80px;
   background-color: $tertiary_color;
   border-radius: 0px 15px 15px 0px;
+  font-size: 40px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   i {
-    display: none;
+    // display: none;
+    position: relative;
+    top: calc(50% - 25px);
+    color: white;
+    // transform: rotate(180deg);
   }
 }
 
@@ -174,21 +184,21 @@
 //                      keyframes
 // ====================================================
 @keyframes meal_price_transition_open {
-  0% {
-    width: 0px;
-  }
-  100% {
-    width: 80px;
-  }
+  // 0% {
+  //   width: 0px;
+  // }
+  // 100% {
+  //   width: 80px;
+  // }
 }
 
 @keyframes meal_price_transition_close {
-  0% {
-    width: 80px;
-  }
-  100% {
-    width: 0px;
-  }
+  // 0% {
+  //   width: 80px;
+  // }
+  // 100% {
+  //   width: 0px;
+  // }
 }
 
 @keyframes meal_item_transition {
@@ -199,5 +209,14 @@
   100% {
     margin-top: 0px;
     opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
