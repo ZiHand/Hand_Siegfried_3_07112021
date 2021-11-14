@@ -138,12 +138,15 @@ footer a {
   background-color: #f6f6f6;
   align-items: center;
 }
+.description_container h1 {
+  font-size: 25px;
+}
 .description_container h2 {
   padding: 0px 10px 0px 10px;
   margin-bottom: 10px;
 }
 .description_container p {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 0px;
 }
 .description_container .explore_btn {
