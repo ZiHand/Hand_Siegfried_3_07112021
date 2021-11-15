@@ -620,7 +620,7 @@ footer a {
 /* Responsive (tablet)                                                 */
 /* =================================================================== */
 @media only screen and (max-width: 991px) {
-  body::before {
+  /*body::before {
     content: "tablet media query max-width: 991px fired";
     font-weight: bold;
     display: block;
@@ -631,8 +631,7 @@ footer a {
     left: 0;
     right: 0;
     z-index: 99;
-  }
-
+  }*/
   .meal_list {
     display: flex;
     flex-wrap: wrap;
@@ -652,7 +651,7 @@ footer a {
 /* Responsive (mobile)                                                 */
 /* =================================================================== */
 @media only screen and (max-width: 767px) {
-  body::before {
+  /*body::before {
     content: "Mobile media query max-width: 767px fired";
     font-weight: bold;
     display: block;
@@ -663,8 +662,7 @@ footer a {
     left: 0;
     right: 0;
     z-index: 99;
-  }
-
+  }*/
   .meal_list {
     display: flex;
     flex-direction: column;
