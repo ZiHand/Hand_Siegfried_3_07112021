@@ -18,7 +18,7 @@ $shrikhand_font: "Shrikhand", cursive;
 $shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
 $shadow_hover: 1px 1px 4px 2px rgba(0, 0, 0, 0.493);
 
-$is_debug: false; // for debug responsive
+$is_debug: true; // for debug responsive
 
 a {
   text-decoration: none;
@@ -114,4 +114,17 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  @include reponsive_debug_overlay(rgba(255, 255, 0, 0.9), 991px);
+}
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  @include reponsive_debug_overlay(rgba(255, 0, 0, 0.336), 767px);
 }
