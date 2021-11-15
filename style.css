@@ -34,6 +34,22 @@ body {
     opacity: 1;
   }
 }
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media screen and (max-width: 991px) {
+  .main_container {
+    max-width: 768px;
+  }
+}
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  .main_container {
+    max-width: 768px;
+  }
+}
 header {
   width: 100%;
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
@@ -427,12 +443,14 @@ footer a {
   flex-direction: row;
   background-color: white;
   width: auto;
+  max-width: 310px;
   border-radius: 15px;
   box-shadow: 0px 2px 7px -1px rgba(0, 0, 0, 0.71);
   padding: 0px 0px 0px 10px;
   margin-bottom: 20px;
   opacity: 0;
   overflow: hidden;
+  max-height: 60px;
   animation: meal_item_transition 1s ease-in-out 0s both;
 }
 .meal_item:hover {
@@ -449,9 +467,11 @@ footer a {
 }
 
 .meal_details {
-  width: 280px;
-  min-width: 280px;
+  width: 270px;
+  min-width: 270px;
   overflow: hidden;
+  padding-right: 10px;
+  box-sizing: border-box;
 }
 .meal_details p,
 .meal_details h3 {
@@ -475,14 +495,13 @@ footer a {
 .meal_price {
   min-width: 40px;
   max-width: 40px;
-  padding-left: 10px;
   padding-top: 20px;
   font-weight: bold;
   font-size: 14px;
 }
 
 .meal_checked {
-  width: 45px;
+  width: 55px;
   background-color: #99e2d0;
   border-radius: 0px 15px 15px 0px;
   font-size: 25px;
@@ -546,22 +565,104 @@ footer a {
 }
 @keyframes meal_detail_transition_open {
   0% {
-    min-width: 280px;
-    width: 280px;
+    min-width: 270px;
+    width: 270px;
   }
   100% {
-    min-width: 230px;
-    width: 230px;
+    min-width: 220px;
+    width: 220px;
   }
 }
 @keyframes meal_detail_transition_close {
   0% {
-    min-width: 230px;
-    width: 230px;
+    min-width: 220px;
+    width: 220px;
   }
   100% {
-    min-width: 280px;
-    width: 280px;
+    min-width: 270px;
+    width: 270px;
+  }
+}
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  body::before {
+    content: "tablet media query max-width: 991px fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .meal_list > * {
+    max-height: 60px;
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
+  }
+}
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  body::before {
+    content: "Mobile media query max-width: 767px fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 0, 0, 0.336);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  .meal_list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meal_list > * {
+    flex: 1 0 310px;
+  }
+
+  .meal_item {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
+/* =================================================================== */
+/* Responsive (desktop)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .meal_list > * {
+    flex: 1 0 310px;
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
   }
 }
 

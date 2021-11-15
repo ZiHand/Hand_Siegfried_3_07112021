@@ -83,9 +83,9 @@
   flex-direction: column;
 }
 
-$meal_content_width_close: 280px;
-$meal_content_width_open: 230px;
-$meal_check_width: 45px;
+$meal_content_width_close: 270px;
+$meal_content_width_open: 220px;
+$meal_check_width: 55px;
 $meal_price_width: 40px;
 
 .meal_item {
@@ -93,12 +93,14 @@ $meal_price_width: 40px;
   flex-direction: row;
   background-color: white;
   width: auto;
+  max-width: calc($meal_content_width_close + $meal_price_width);
   border-radius: 15px;
   box-shadow: $shadow;
   padding: 0px 0px 0px 10px;
   margin-bottom: 20px;
   opacity: 0;
   overflow: hidden;
+  max-height: 60px;
 
   // 1- animation-name
   // 2- animation-duration
@@ -128,8 +130,10 @@ $meal_price_width: 40px;
 
 .meal_details {
   width: $meal_content_width_close;
-  min-width: $meal_content_width_close; // TODO : may change for desktop
+  min-width: $meal_content_width_close; // TODO : may change for desktop & tablet
   overflow: hidden;
+  padding-right: 10px;
+  box-sizing: border-box;
 
   p,
   h3 {
@@ -157,7 +161,7 @@ $meal_price_width: 40px;
 .meal_price {
   min-width: $meal_price_width;
   max-width: $meal_price_width;
-  padding-left: 10px;
+  // padding-left: 10px;
   padding-top: 20px;
   font-weight: bold;
   font-size: 14px;
@@ -237,5 +241,90 @@ $meal_price_width: 40px;
   100% {
     min-width: $meal_content_width_close;
     width: $meal_content_width_close;
+  }
+}
+
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  body::before {
+    content: "tablet media query max-width: 991px fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 255, 0, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    // justify-content: space-around;
+  }
+
+  .meal_list > * {
+    max-height: 60px;
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
+  }
+}
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  body::before {
+    content: "Mobile media query max-width: 767px fired";
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    background: rgba(255, 0, 0, 0.336);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+
+  .meal_list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meal_list > * {
+    flex: 1 0 calc($meal_content_width_close + $meal_price_width);
+  }
+
+  .meal_item {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
+
+/* =================================================================== */
+/* Responsive (desktop)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    // justify-content: space-around;
+  }
+
+  .meal_list > * {
+    flex: 1 0 calc($meal_content_width_close + $meal_price_width);
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
   }
 }
