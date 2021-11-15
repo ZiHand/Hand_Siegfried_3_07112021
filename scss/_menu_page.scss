@@ -78,53 +78,15 @@
   }
 }
 
+.meal_list {
+  display: flex;
+  flex-direction: column;
+}
+
 $meal_content_width_close: 270px;
 $meal_content_width_open: 220px;
 $meal_check_width: 55px;
 $meal_price_width: 40px;
-
-.meal_list {
-  display: flex;
-  flex-direction: column;
-
-  // Tablet
-  @media only screen and (max-width: 991px) {
-    @include reponsive_debug_overlay(rgba(255, 255, 0, 0.9), 991px);
-
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-
-    * {
-      max-height: 60px;
-    }
-  }
-
-  // Mobile
-  @media only screen and (max-width: 767px) {
-    @include reponsive_debug_overlay(rgba(255, 0, 0, 0.336), 767px);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    * {
-      flex: 1 0 calc($meal_content_width_close + $meal_price_width);
-    }
-  }
-
-  // Desktop
-  @media only screen and (min-width: 991px) {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-
-    * {
-      flex: 1 0 calc($meal_content_width_close + $meal_price_width);
-    }
-  }
-}
 
 .meal_item {
   display: flex;
@@ -164,31 +126,11 @@ $meal_price_width: 40px;
       animation: meal_detail_transition_close 0.5s ease-out 0s both;
     }
   }
-
-  // Tablet
-  @media only screen and (max-width: 991px) {
-    margin-right: 17px;
-    margin-left: 17px;
-  }
-
-  // Mobile
-  @media only screen and (max-width: 767px) {
-    margin-right: 0px;
-    margin-left: 0px;
-    width: calc($meal_content_width_close + $meal_price_width);
-    max-width: calc($meal_content_width_close + $meal_price_width);
-  }
-
-  // Desktop
-  @media only screen and (min-width: 991px) {
-    margin-right: 17px;
-    margin-left: 17px;
-  }
 }
 
 .meal_details {
   width: $meal_content_width_close;
-  min-width: $meal_content_width_close;
+  min-width: $meal_content_width_close; // TODO : may change for desktop & tablet
   overflow: hidden;
   padding-right: 10px;
   box-sizing: border-box;
@@ -219,6 +161,7 @@ $meal_price_width: 40px;
 .meal_price {
   min-width: $meal_price_width;
   max-width: $meal_price_width;
+  // padding-left: 10px;
   padding-top: 20px;
   font-weight: bold;
   font-size: 14px;
@@ -271,7 +214,7 @@ $meal_price_width: 40px;
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
 
-  // Transition to showing the bigger shadow on hover
+  /* Transition to showing the bigger shadow on hover */
   &:hover::after {
     opacity: 1;
   }
@@ -319,5 +262,71 @@ $meal_price_width: 40px;
   100% {
     min-width: $meal_content_width_close;
     width: $meal_content_width_close;
+  }
+}
+
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  @include reponsive_debug_overlay(rgba(255, 255, 0, 0.9), 991px);
+
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .meal_list > * {
+    max-height: 60px;
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
+  }
+}
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  @include reponsive_debug_overlay(rgba(255, 0, 0, 0.336), 767px);
+
+  .meal_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .meal_list > * {
+    flex: 1 0 calc($meal_content_width_close + $meal_price_width);
+  }
+
+  .meal_item {
+    margin-right: 0px;
+    margin-left: 0px;
+    width: calc($meal_content_width_close + $meal_price_width);
+    max-width: calc($meal_content_width_close + $meal_price_width);
+  }
+}
+
+/* =================================================================== */
+/* Responsive (desktop)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .meal_list > * {
+    flex: 1 0 calc($meal_content_width_close + $meal_price_width);
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
   }
 }

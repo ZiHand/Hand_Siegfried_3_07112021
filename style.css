@@ -174,6 +174,7 @@ footer a {
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
   padding-top: 11px;
   transform: scale(1.2, 1.2);
+  /* Transition to showing the bigger shadow on hover */
 }
 .description_container .explore_btn::after {
   content: "";
@@ -227,10 +228,10 @@ footer a {
 }
 .func_item:hover {
   cursor: pointer;
-  animation: func_item_hover_transition 0.3s ease-out 0s both;
+  animation: func_item_hover_transition 0.8s ease-out 0s both;
 }
 .func_item:hover > .item_icon {
-  animation: func_item_hover_transition2 0.3s ease-in 0s both;
+  animation: func_item_hover_transition2 0.8s ease-in 0s both;
 }
 .func_item p {
   text-align: start;
@@ -274,24 +275,6 @@ footer a {
   justify-content: center;
   align-items: center;
 }
-@media only screen and (max-width: 991px) {
-  #restaurant_list {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-@media only screen and (max-width: 767px) {
-  #restaurant_list {
-    flex-direction: column;
-    flex-wrap: no-wrap;
-  }
-}
-@media only screen and (min-width: 991px) {
-  #restaurant_list {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
 
 .restaurant_figure {
   background-color: white;
@@ -316,18 +299,6 @@ footer a {
   flex-direction: row;
   min-height: 50px;
   margin: 0px 10px 0px 10px;
-}
-@media only screen and (max-width: 991px) {
-  .restaurant_figure {
-    width: auto;
-    min-width: 330px;
-  }
-}
-@media only screen and (min-width: 991px) {
-  .restaurant_figure {
-    width: auto;
-    min-width: 330px;
-  }
 }
 
 .rest_fig_icon {
@@ -393,6 +364,43 @@ footer a {
   margin-top: 10px;
 }
 
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  #restaurant_list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .restaurant_figure {
+    width: auto;
+    min-width: 330px;
+  }
+}
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  #restaurant_list {
+    flex-direction: column;
+    flex-wrap: no-wrap;
+  }
+}
+/* =================================================================== */
+/* Responsive (desktop)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  #restaurant_list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .restaurant_figure {
+    width: auto;
+    min-width: 330px;
+  }
+}
 .menu_main {
   background-color: #f6f6f6;
 }
@@ -462,37 +470,6 @@ footer a {
   display: flex;
   flex-direction: column;
 }
-@media only screen and (max-width: 991px) {
-  .meal_list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  .meal_list * {
-    max-height: 60px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .meal_list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .meal_list * {
-    flex: 1 0 310px;
-  }
-}
-@media only screen and (min-width: 991px) {
-  .meal_list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  .meal_list * {
-    flex: 1 0 310px;
-  }
-}
 
 .meal_item {
   display: flex;
@@ -520,26 +497,6 @@ footer a {
 }
 .meal_item:not(:hover) .meal_details {
   animation: meal_detail_transition_close 0.5s ease-out 0s both;
-}
-@media only screen and (max-width: 991px) {
-  .meal_item {
-    margin-right: 17px;
-    margin-left: 17px;
-  }
-}
-@media only screen and (max-width: 767px) {
-  .meal_item {
-    margin-right: 0px;
-    margin-left: 0px;
-    width: 310px;
-    max-width: 310px;
-  }
-}
-@media only screen and (min-width: 991px) {
-  .meal_item {
-    margin-right: 17px;
-    margin-left: 17px;
-  }
 }
 
 .meal_details {
@@ -614,6 +571,7 @@ footer a {
   color: white;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
   transform: scale(1.2, 1.2);
+  /* Transition to showing the bigger shadow on hover */
 }
 .order_btn::after {
   content: "";
@@ -669,6 +627,66 @@ footer a {
   100% {
     min-width: 270px;
     width: 270px;
+  }
+}
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .meal_list > * {
+    max-height: 60px;
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
+  }
+}
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  .meal_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .meal_list > * {
+    flex: 1 0 310px;
+  }
+
+  .meal_item {
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 310px;
+    max-width: 310px;
+  }
+}
+/* =================================================================== */
+/* Responsive (desktop)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  .meal_list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .meal_list > * {
+    flex: 1 0 310px;
+  }
+
+  .meal_item {
+    margin-right: 17px;
+    margin-left: 17px;
   }
 }
 

@@ -89,7 +89,7 @@ body {
 @mixin reponsive_debug_overlay($colour, $size) {
   @if $is_debug {
     body::before {
-      content: "Media query max-width: " + #{$size} + " fired";
+      content: "tablet media query max-width: " + #{$size} + " fired";
       font-weight: bold;
       display: block;
       text-align: center;
@@ -114,18 +114,4 @@ body {
   100% {
     opacity: 1;
   }
-}
-
-// ====================================================
-// Responsive (Tablet)
-// ====================================================
-@media only screen and (max-width: 991px) {
-  @include reponsive_debug_overlay(rgba(255, 255, 0, 0.9), 991px);
-}
-
-// ====================================================
-// Responsive (Mobile)
-// ====================================================
-@media only screen and (max-width: 767px) {
-  @include reponsive_debug_overlay(rgba(255, 0, 0, 0.336), 767px);
 }
