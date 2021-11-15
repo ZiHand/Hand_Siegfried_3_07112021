@@ -76,6 +76,11 @@ body {
   max-height: 200px;
 }
 
+@mixin restaurant_title_font {
+  font-family: $shrikhand_font;
+  letter-spacing: 1px;
+}
+
 // ====================================================
 //                   Animations
 // ====================================================

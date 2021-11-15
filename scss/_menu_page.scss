@@ -42,7 +42,8 @@
 .menu_header {
   display: flex;
   flex-direction: row;
-  font-family: $shrikhand_font;
+
+  @include restaurant_title_font;
 
   h2 {
     min-width: 80%;
@@ -82,6 +83,11 @@
   flex-direction: column;
 }
 
+$meal_content_width_close: 280px;
+$meal_content_width_open: 230px;
+$meal_check_width: 45px;
+$meal_price_width: 40px;
+
 .meal_item {
   display: flex;
   flex-direction: row;
@@ -103,8 +109,9 @@
 
   &:hover {
     cursor: pointer;
-    .meal_price {
-      animation: meal_price_transition_open 0.5s ease-out 0s both;
+
+    .meal_details {
+      animation: meal_detail_transition_open 0.5s ease-out 0s both;
     }
 
     .meal_checked > i {
@@ -113,21 +120,26 @@
   }
 
   &:not(:hover) {
-    .meal_price {
-      animation: meal_price_transition_close 0.4s ease-in-out 0s both;
+    .meal_details {
+      animation: meal_detail_transition_close 0.5s ease-out 0s both;
     }
   }
 }
 
 .meal_details {
-  width: 200px;
-  min-width: 200px; // TODO : may change for desktop
+  width: $meal_content_width_close;
+  min-width: $meal_content_width_close; // TODO : may change for desktop
+  overflow: hidden;
 
   p,
   h3 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  h3 {
+    font-size: 17px;
   }
 
   .meal_header {
@@ -143,27 +155,26 @@
 }
 
 .meal_price {
-  min-width: 50px;
-  max-width: 50px;
+  min-width: $meal_price_width;
+  max-width: $meal_price_width;
   padding-left: 10px;
-  margin-left: 40px;
-  justify-content: center;
-  align-items: end;
+  padding-top: 20px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .meal_checked {
-  width: 80px;
+  width: $meal_check_width;
   background-color: $tertiary_color;
   border-radius: 0px 15px 15px 0px;
-  font-size: 40px;
+  font-size: 25px;
   justify-content: center;
   align-items: center;
   text-align: center;
 
   i {
     position: relative;
-    top: calc(50% - 25px);
+    top: calc(50% - 16px);
     color: white;
   }
 }
@@ -198,29 +209,33 @@
   }
 }
 
-@keyframes meal_price_transition_open {
-  0% {
-    margin-left: 65px;
-  }
-  100% {
-    margin-left: 0px;
-  }
-}
-
-@keyframes meal_price_transition_close {
-  0% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: 65px;
-  }
-}
-
 @keyframes meal_cheched_rotate {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes meal_detail_transition_open {
+  0% {
+    min-width: $meal_content_width_close;
+    width: $meal_content_width_close;
+  }
+  100% {
+    min-width: $meal_content_width_open;
+    width: $meal_content_width_open;
+  }
+}
+
+@keyframes meal_detail_transition_close {
+  0% {
+    min-width: $meal_content_width_open;
+    width: $meal_content_width_open;
+  }
+  100% {
+    min-width: $meal_content_width_close;
+    width: $meal_content_width_close;
   }
 }

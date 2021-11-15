@@ -386,6 +386,7 @@ footer a {
   display: flex;
   flex-direction: row;
   font-family: "Shrikhand", cursive;
+  letter-spacing: 1px;
 }
 .menu_header h2 {
   min-width: 80%;
@@ -437,25 +438,29 @@ footer a {
 .meal_item:hover {
   cursor: pointer;
 }
-.meal_item:hover .meal_price {
-  animation: meal_price_transition_open 0.5s ease-out 0s both;
+.meal_item:hover .meal_details {
+  animation: meal_detail_transition_open 0.5s ease-out 0s both;
 }
 .meal_item:hover .meal_checked > i {
   animation: meal_cheched_rotate 0.5s ease-out 0s both;
 }
-.meal_item:not(:hover) .meal_price {
-  animation: meal_price_transition_close 0.4s ease-in-out 0s both;
+.meal_item:not(:hover) .meal_details {
+  animation: meal_detail_transition_close 0.5s ease-out 0s both;
 }
 
 .meal_details {
-  width: 200px;
-  min-width: 200px;
+  width: 280px;
+  min-width: 280px;
+  overflow: hidden;
 }
 .meal_details p,
 .meal_details h3 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.meal_details h3 {
+  font-size: 17px;
 }
 .meal_details .meal_header {
   font-weight: bold;
@@ -468,27 +473,26 @@ footer a {
 }
 
 .meal_price {
-  min-width: 50px;
-  max-width: 50px;
+  min-width: 40px;
+  max-width: 40px;
   padding-left: 10px;
-  margin-left: 40px;
-  justify-content: center;
-  align-items: end;
+  padding-top: 20px;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .meal_checked {
-  width: 80px;
+  width: 45px;
   background-color: #99e2d0;
   border-radius: 0px 15px 15px 0px;
-  font-size: 40px;
+  font-size: 25px;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 .meal_checked i {
   position: relative;
-  top: calc(50% - 25px);
+  top: calc(50% - 16px);
   color: white;
 }
 
@@ -532,28 +536,32 @@ footer a {
     opacity: 1;
   }
 }
-@keyframes meal_price_transition_open {
-  0% {
-    margin-left: 65px;
-  }
-  100% {
-    margin-left: 0px;
-  }
-}
-@keyframes meal_price_transition_close {
-  0% {
-    margin-left: 0px;
-  }
-  100% {
-    margin-left: 65px;
-  }
-}
 @keyframes meal_cheched_rotate {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes meal_detail_transition_open {
+  0% {
+    min-width: 280px;
+    width: 280px;
+  }
+  100% {
+    min-width: 230px;
+    width: 230px;
+  }
+}
+@keyframes meal_detail_transition_close {
+  0% {
+    min-width: 230px;
+    width: 230px;
+  }
+  100% {
+    min-width: 280px;
+    width: 280px;
   }
 }
 
