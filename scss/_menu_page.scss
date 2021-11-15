@@ -269,18 +269,7 @@ $meal_price_width: 40px;
 /* Responsive (tablet)                                                 */
 /* =================================================================== */
 @media only screen and (max-width: 991px) {
-  /*body::before {
-    content: "tablet media query max-width: 991px fired";
-    font-weight: bold;
-    display: block;
-    text-align: center;
-    background: rgba(255, 255, 0, 0.9);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }*/
+  @include reponsive_debug_overlay(rgba(255, 255, 0, 0.9), 991px);
 
   .meal_list {
     display: flex;
@@ -301,18 +290,7 @@ $meal_price_width: 40px;
 /* Responsive (mobile)                                                 */
 /* =================================================================== */
 @media only screen and (max-width: 767px) {
-  /*body::before {
-    content: "Mobile media query max-width: 767px fired";
-    font-weight: bold;
-    display: block;
-    text-align: center;
-    background: rgba(255, 0, 0, 0.336);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }*/
+  @include reponsive_debug_overlay(rgba(255, 0, 0, 0.336), 767px);
 
   .meal_list {
     display: flex;

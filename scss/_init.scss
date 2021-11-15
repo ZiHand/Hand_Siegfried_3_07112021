@@ -18,6 +18,8 @@ $shrikhand_font: "Shrikhand", cursive;
 $shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
 $shadow_hover: 1px 1px 4px 2px rgba(0, 0, 0, 0.493);
 
+$is_debug: false; // for debug responsive
+
 a {
   text-decoration: none;
 
@@ -45,6 +47,14 @@ body {
   padding: 0px;
   margin: auto;
   overflow: hidden;
+
+  @media screen and (max-width: 991px) {
+    max-width: 768px;
+  }
+
+  @media only screen and (min-width: 991px) {
+    max-width: 768px;
+  }
 }
 
 // ====================================================
@@ -63,13 +73,6 @@ body {
   width: 250px;
   color: white;
   box-shadow: $shadow;
-  //transform: scale(1);
-  //transition: scale, 400ms;
-
-  // &:hover {
-  //   transform: scale(1.15);
-  //   cursor: pointer;
-  // }
 }
 
 @mixin scaled_image {
@@ -83,6 +86,23 @@ body {
   letter-spacing: 1px;
 }
 
+@mixin reponsive_debug_overlay($colour, $size) {
+  @if $is_debug {
+    body::before {
+      content: "tablet media query max-width: " + #{$size} + " fired";
+      font-weight: bold;
+      display: block;
+      text-align: center;
+      background: $colour;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+    }
+  }
+}
+
 // ====================================================
 //                   Animations
 // ====================================================
@@ -93,23 +113,5 @@ body {
 
   100% {
     opacity: 1;
-  }
-}
-
-/* =================================================================== */
-/* Responsive (tablet)                                                 */
-/* =================================================================== */
-@media screen and (max-width: 991px) {
-  .main_container {
-    max-width: 768px;
-  }
-}
-
-/* =================================================================== */
-/* Responsive (tablet)                                                 */
-/* =================================================================== */
-@media only screen and (min-width: 991px) {
-  .main_container {
-    max-width: 768px;
   }
 }

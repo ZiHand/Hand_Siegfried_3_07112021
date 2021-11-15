@@ -176,6 +176,8 @@
 #restaurant_list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 // =====================
@@ -282,12 +284,8 @@
 /* =================================================================== */
 @media only screen and (max-width: 991px) {
   #restaurant_list {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-    justify-content: center;
-    align-items: center;
   }
 
   .restaurant_figure {
@@ -301,12 +299,8 @@
 /* =================================================================== */
 @media only screen and (max-width: 767px) {
   #restaurant_list {
-    display: flex;
     flex-direction: column;
     flex-wrap: no-wrap;
-
-    justify-content: center;
-    align-items: center;
   }
 }
 
@@ -315,12 +309,8 @@
 /* =================================================================== */
 @media only screen and (min-width: 991px) {
   #restaurant_list {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
-    justify-content: center;
-    align-items: center;
   }
 
   .restaurant_figure {
