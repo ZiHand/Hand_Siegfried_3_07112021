@@ -203,7 +203,7 @@ footer a {
 }
 @keyframes func_item_hover_transition2 {
   0% {
-    color: white;
+    color: black;
   }
   100% {
     color: #9356dc;
@@ -292,19 +292,6 @@ footer a {
   margin: 0px 10px 0px 10px;
 }
 
-@keyframes rest_fig_icon_full_hover {
-  0% {
-    background: white;
-  }
-  100% {
-    background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: initial;
-    /* reset Font Awesome's display:inline-block */
-  }
-}
 .rest_fig_icon {
   min-width: 20%;
   justify-content: center;
@@ -368,6 +355,52 @@ footer a {
   margin-top: 10px;
 }
 
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  #restaurant_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .restaurant_figure {
+    width: auto;
+    min-width: 330px;
+  }
+}
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  #restaurant_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+/* =================================================================== */
+/* Responsive (desktop)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  #restaurant_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .restaurant_figure {
+    width: auto;
+    min-width: 330px;
+  }
+}
 .menu_main {
   background-color: #f6f6f6;
 }
@@ -635,6 +668,8 @@ footer a {
   .meal_list {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .meal_list > * {
@@ -644,6 +679,8 @@ footer a {
   .meal_item {
     margin-right: 0px;
     margin-left: 0px;
+    width: 310px;
+    max-width: 310px;
   }
 }
 /* =================================================================== */

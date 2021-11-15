@@ -81,7 +81,7 @@
 // =====================
 @keyframes func_item_hover_transition2 {
   0% {
-    color: white;
+    color: black;
   }
   100% {
     color: $primary_color;
@@ -184,19 +184,6 @@
 }
 
 // =====================
-@keyframes rest_fig_icon_full_hover {
-  0% {
-    background: white;
-  }
-  100% {
-    background: $default_gradian;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: initial; /* reset Font Awesome's display:inline-block */
-  }
-}
-
 .rest_fig_icon {
   min-width: 20%;
   justify-content: center;
@@ -268,4 +255,54 @@
   }
 }
 
-// =====================
+/* =================================================================== */
+/* Responsive (tablet)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 991px) {
+  #restaurant_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .restaurant_figure {
+    width: auto;
+    min-width: 330px;
+  }
+}
+
+/* =================================================================== */
+/* Responsive (mobile)                                                 */
+/* =================================================================== */
+@media only screen and (max-width: 767px) {
+  #restaurant_list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* =================================================================== */
+/* Responsive (desktop)                                                 */
+/* =================================================================== */
+@media only screen and (min-width: 991px) {
+  #restaurant_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  .restaurant_figure {
+    width: auto;
+    min-width: 330px;
+  }
+}

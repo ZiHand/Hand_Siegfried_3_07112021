@@ -264,7 +264,6 @@ $meal_price_width: 40px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    // justify-content: space-around;
   }
 
   .meal_list > * {
@@ -296,6 +295,8 @@ $meal_price_width: 40px;
   .meal_list {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .meal_list > * {
@@ -305,6 +306,8 @@ $meal_price_width: 40px;
   .meal_item {
     margin-right: 0px;
     margin-left: 0px;
+    width: calc($meal_content_width_close + $meal_price_width);
+    max-width: calc($meal_content_width_close + $meal_price_width);
   }
 }
 
@@ -316,7 +319,6 @@ $meal_price_width: 40px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    // justify-content: space-around;
   }
 
   .meal_list > * {
