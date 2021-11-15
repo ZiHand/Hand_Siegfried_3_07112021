@@ -228,10 +228,10 @@ footer a {
 }
 .func_item:hover {
   cursor: pointer;
-  animation: func_item_hover_transition 0.8s ease-out 0s both;
+  animation: func_item_hover_transition 0.3s ease-out 0s both;
 }
 .func_item:hover > .item_icon {
-  animation: func_item_hover_transition2 0.8s ease-in 0s both;
+  animation: func_item_hover_transition2 0.3s ease-in 0s both;
 }
 .func_item p {
   text-align: start;
