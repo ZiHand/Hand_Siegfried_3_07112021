@@ -174,7 +174,6 @@ footer a {
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
   padding-top: 11px;
   transform: scale(1.2, 1.2);
-  /* Transition to showing the bigger shadow on hover */
 }
 .description_container .explore_btn::after {
   content: "";
@@ -228,10 +227,10 @@ footer a {
 }
 .func_item:hover {
   cursor: pointer;
-  animation: func_item_hover_transition 0.8s ease-out 0s both;
+  animation: func_item_hover_transition 0.3s ease-out 0s both;
 }
 .func_item:hover > .item_icon {
-  animation: func_item_hover_transition2 0.8s ease-in 0s both;
+  animation: func_item_hover_transition2 0.3s ease-in 0s both;
 }
 .func_item p {
   text-align: start;
@@ -615,7 +614,6 @@ footer a {
   color: white;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
   transform: scale(1.2, 1.2);
-  /* Transition to showing the bigger shadow on hover */
 }
 .order_btn::after {
   content: "";

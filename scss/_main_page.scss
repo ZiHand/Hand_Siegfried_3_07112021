@@ -74,7 +74,7 @@
       transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
-    /* Transition to showing the bigger shadow on hover */
+    // Transition to showing the bigger shadow on hover
     &:hover::after {
       opacity: 1;
     }
@@ -122,11 +122,11 @@
 
   &:hover {
     cursor: pointer;
-    animation: func_item_hover_transition 0.8s ease-out 0s both;
+    animation: func_item_hover_transition 0.3s ease-out 0s both;
   }
 
   &:hover > .item_icon {
-    animation: func_item_hover_transition2 0.8s ease-in 0s both;
+    animation: func_item_hover_transition2 0.3s ease-in 0s both;
   }
 
   p {
@@ -179,16 +179,19 @@
   justify-content: center;
   align-items: center;
 
+  // Tablet
   @media only screen and (max-width: 991px) {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
+  // Mobile
   @media only screen and (max-width: 767px) {
     flex-direction: column;
     flex-wrap: no-wrap;
   }
 
+  // Desktop
   @media only screen and (min-width: 991px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -220,11 +223,13 @@
     margin: 0px 10px 0px 10px;
   }
 
+  // Tablet
   @media only screen and (max-width: 991px) {
     width: auto;
     min-width: 330px;
   }
 
+  // Desktop
   @media only screen and (min-width: 991px) {
     width: auto;
     min-width: 330px;
@@ -266,6 +271,7 @@
   }
 }
 
+// =====================
 .heart_icon_empty::before {
   display: block;
 }
