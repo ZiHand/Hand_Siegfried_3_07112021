@@ -48,10 +48,12 @@ body {
   margin: auto;
   overflow: hidden;
 
+  // Tablet
   @media screen and (max-width: 991px) {
     max-width: 768px;
   }
 
+  // Desktop
   @media only screen and (min-width: 991px) {
     max-width: 768px;
   }
@@ -89,7 +91,7 @@ body {
 @mixin reponsive_debug_overlay($colour, $size) {
   @if $is_debug {
     body::before {
-      content: "tablet media query max-width: " + #{$size} + " fired";
+      content: "Media-Query max-width: " + #{$size} + " fired";
       font-weight: bold;
       display: block;
       text-align: center;
@@ -116,15 +118,15 @@ body {
   }
 }
 
-/* =================================================================== */
-/* Responsive (tablet)                                                 */
-/* =================================================================== */
+// ====================================================
+// Responsive (tablet)
+// ====================================================
 @media only screen and (max-width: 991px) {
   @include reponsive_debug_overlay(rgba(255, 255, 0, 0.9), 991px);
 }
-/* =================================================================== */
-/* Responsive (mobile)                                                 */
-/* =================================================================== */
+// ====================================================
+// Responsive (mobile)
+// ====================================================
 @media only screen and (max-width: 767px) {
   @include reponsive_debug_overlay(rgba(255, 0, 0, 0.336), 767px);
 }
