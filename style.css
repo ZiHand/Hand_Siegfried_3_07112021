@@ -47,37 +47,9 @@ body {
 /* =================================================================== */
 /* Responsive (tablet)                                                 */
 /* =================================================================== */
-@media only screen and (max-width: 991px) {
-  body::before {
-    content: "tablet media query max-width: 991px fired";
-    font-weight: bold;
-    display: block;
-    text-align: center;
-    background: rgba(255, 255, 0, 0.9);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }
-}
 /* =================================================================== */
 /* Responsive (mobile)                                                 */
 /* =================================================================== */
-@media only screen and (max-width: 767px) {
-  body::before {
-    content: "tablet media query max-width: 767px fired";
-    font-weight: bold;
-    display: block;
-    text-align: center;
-    background: rgba(255, 0, 0, 0.336);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-  }
-}
 header {
   width: 100%;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
