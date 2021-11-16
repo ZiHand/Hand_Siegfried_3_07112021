@@ -78,7 +78,22 @@ header i {
   transition: transform 400ms;
 }
 header i:hover {
-  transform: scale(1.15);
+  transform: scale(1.2);
+}
+@media only screen and (max-width: 991px) {
+  header i {
+    left: 70px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  header i {
+    left: 20px;
+  }
+}
+@media only screen and (min-width: 991px) {
+  header i {
+    left: 90px;
+  }
 }
 
 footer {
