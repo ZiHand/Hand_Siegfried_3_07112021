@@ -81,6 +81,10 @@ body {
   object-fit: cover;
   width: 100%;
   max-height: 200px;
+
+  // Only render when in viewport
+  // ovoid for now, compatibility issues
+  // content-visibility: auto;
 }
 
 @mixin restaurant_title_font {
