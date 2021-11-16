@@ -38,6 +38,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: $roboto_font;
+  background-color: rgba(44, 43, 43, 0.589);
 }
 
 .main_container {
@@ -47,6 +48,7 @@ body {
   padding: 0px;
   margin: auto;
   overflow: hidden;
+  background-color: white;
 
   // Tablet
   @media screen and (max-width: 991px) {
