@@ -83,7 +83,7 @@ footer {
 }
 
 // ====================================================
-//                    Loader
+//                      Loader
 // ====================================================
 .loader_overlay {
   left: 0;
@@ -94,11 +94,11 @@ footer {
   background-color: rgba(44, 43, 43, 0.589);
   z-index: 5;
 
-  animation-duration: 3s, 1.5s;
-  animation-delay: 0s, 1.5s;
+  animation-duration: 2s, 1s;
+  animation-delay: 0s, 1.3s;
   animation-fill-mode: forwards;
   animation-timing-function: steps(1, end), ease-in-out;
-  animation-name: hide_loader, opacity_loader;
+  animation-name: hide_loader, fadeOut;
 
   @keyframes hide_loader {
     to {
@@ -106,16 +106,6 @@ footer {
       z-index: -1;
       width: 0%;
       height: 0%;
-    }
-  }
-
-  @keyframes opacity_loader {
-    0% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
     }
   }
 }
@@ -136,12 +126,12 @@ footer {
 }
 
 .spinner {
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   display: inline-block;
-  border-width: 2px;
-  border-color: rgba(255, 255, 255, 0.05);
-  border-top-color: #fff;
+  border-width: 4px;
+  border-color: $tertiary_color;
+  border-top-color: $primary_color;
   animation: spin 1s infinite linear;
   border-radius: 100%;
   border-style: solid;

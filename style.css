@@ -36,12 +36,20 @@ body {
   }
 }
 
-@keyframes heart_fadeIn {
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 header {
@@ -120,11 +128,11 @@ footer a {
   position: fixed;
   background-color: rgba(44, 43, 43, 0.589);
   z-index: 5;
-  animation-duration: 3s, 1.5s;
-  animation-delay: 0s, 1.5s;
+  animation-duration: 2s, 1s;
+  animation-delay: 0s, 1.3s;
   animation-fill-mode: forwards;
   animation-timing-function: steps(1, end), ease-in-out;
-  animation-name: hide_loader, opacity_loader;
+  animation-name: hide_loader, fadeOut;
 }
 @keyframes hide_loader {
   to {
@@ -132,14 +140,6 @@ footer a {
     z-index: -1;
     width: 0%;
     height: 0%;
-  }
-}
-@keyframes opacity_loader {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 
@@ -159,12 +159,12 @@ footer a {
 }
 
 .spinner {
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   display: inline-block;
-  border-width: 2px;
-  border-color: rgba(255, 255, 255, 0.05);
-  border-top-color: #fff;
+  border-width: 4px;
+  border-color: #99e2d0;
+  border-top-color: #9356dc;
   animation: spin 1s infinite linear;
   border-radius: 100%;
   border-style: solid;
@@ -253,8 +253,19 @@ footer a {
   -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+.description_container .explore_btn:hover {
+  animation: hover_light_transition 0.4s ease-in 0s both;
+}
 .description_container .explore_btn:hover::after {
   opacity: 1;
+}
+@keyframes hover_light_transition {
+  0% {
+    filter: brightness(100%);
+  }
+  100% {
+    filter: brightness(110%);
+  }
 }
 
 .functionality_container {
@@ -288,6 +299,27 @@ footer a {
   justify-content: left;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.75);
   border-radius: 15px;
+  /*transform: scale(1.2, 1.2);
+
+  &::after {
+    content: "";
+    border-radius: 15px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: $shadow_hover;
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  // Transition to showing the bigger shadow on hover
+  &:hover::after {
+    opacity: 1;
+  }*/
 }
 .func_item:hover {
   cursor: pointer;
@@ -413,7 +445,7 @@ footer a {
 }
 .rest_fig_icon:active > .heart_icon_full::before, .rest_fig_icon:hover > .heart_icon_full::before {
   display: block;
-  animation: heart_fadeIn 0.4s ease-in 0s both;
+  animation: fadeIn 0.4s ease-in 0s both;
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -465,15 +497,7 @@ footer a {
   width: 100%;
   max-height: 200px;
   opacity: 0;
-  animation: scaled_image_transition 0.8s ease-in 0s both;
-}
-@keyframes scaled_image_transition {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  animation: fadeIn 0.8s ease-in 0s both;
 }
 
 .menu_main_container {
@@ -495,13 +519,42 @@ footer a {
 }
 .menu_header h2 {
   min-width: 80%;
+  width: auto;
 }
-.menu_header i {
-  font-size: 30px;
+.menu_header .rest_heart_icon {
   min-width: 20%;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
+  display: flex;
+  width: 30px;
+  margin: auto;
+}
+.menu_header .rest_heart_icon i {
+  font-size: 30px;
+}
+.menu_header .rest_heart_icon i:hover {
+  cursor: pointer;
+}
+.menu_header .rest_heart_icon:active > .heart_i_empty::before, .menu_header .rest_heart_icon:hover > .heart_i_empty::before {
+  display: none;
+}
+.menu_header .rest_heart_icon:active > .heart_i_full::before, .menu_header .rest_heart_icon:hover > .heart_i_full::before {
+  display: block;
+  animation: fadeIn 0.4s ease-in 0s both;
+  background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: initial;
+  /* reset Font Awesome's display:inline-block */
+}
+
+.heart_i_empty::before {
+  display: block;
+}
+
+.heart_i_full::before {
+  display: none;
 }
 
 .meal_category_list {
@@ -692,6 +745,17 @@ footer a {
 }
 .order_btn:hover::after {
   opacity: 1;
+}
+.order_btn:hover {
+  animation: hover_light_transition 0.4s ease-in 0s both;
+}
+@keyframes hover_light_transition {
+  0% {
+    filter: brightness(100%);
+  }
+  100% {
+    filter: brightness(110%);
+  }
 }
 
 @keyframes meal_item_transition {

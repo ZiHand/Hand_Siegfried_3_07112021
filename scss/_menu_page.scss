@@ -7,21 +7,13 @@
   img {
     @include scaled_image;
     opacity: 0;
-    @keyframes scaled_image_transition {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
 
     // 1- animation-name
     // 2- animation-duration
     // 3- animation-timing-function
     // 4- animation-delay
     // 5- animation-fill-mode
-    animation: scaled_image_transition 0.8s ease-in 0s both;
+    animation: fadeIn 0.8s ease-in 0s both;
   }
 }
 
@@ -52,15 +44,50 @@ $meal_price_width: 40px;
 
   h2 {
     min-width: 80%;
+    width: auto;
   }
 
-  i {
-    font-size: 30px;
+  .rest_heart_icon {
     min-width: 20%;
     justify-content: center;
     align-items: center;
-    display: inline-flex;
+    display: flex;
+    width: 30px;
+    margin: auto;
+
+    i {
+      font-size: 30px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &:active,
+    &:hover {
+      & > .heart_i_empty::before {
+        display: none;
+      }
+
+      & > .heart_i_full::before {
+        display: block;
+        animation: fadeIn 0.4s ease-in 0s both;
+        background: $default_gradian;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: initial; /* reset Font Awesome's display:inline-block */
+      }
+    }
   }
+}
+
+.heart_i_empty::before {
+  display: block;
+}
+
+.heart_i_full::before {
+  display: none;
 }
 
 .meal_category_list {
@@ -261,6 +288,19 @@ $meal_price_width: 40px;
   // Transition to showing the bigger shadow on hover
   &:hover::after {
     opacity: 1;
+  }
+
+  &:hover {
+    animation: hover_light_transition 0.4s ease-in 0s both;
+  }
+
+  @keyframes hover_light_transition {
+    0% {
+      filter: brightness(100%);
+    }
+    100% {
+      filter: brightness(110%);
+    }
   }
 }
 
