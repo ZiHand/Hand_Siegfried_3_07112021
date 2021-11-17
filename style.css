@@ -632,10 +632,10 @@ footer a {
 }
 @keyframes meal_item_transition_top {
   0% {
-    margin-top: 20px;
+    transform: translateY(20px);
   }
   100% {
-    margin-top: 0px;
+    transform: translateY(0px);
   }
 }
 @keyframes meal_cheched_rotate {
