@@ -96,6 +96,10 @@ $meal_price_width: 40px;
 // ====================================================
 //                     meal_category
 // ====================================================
+$num-bars: 3;
+$anim-dur: 500ms;
+$anim-delay: 200ms; //calc($anim-dur / $num-bars);
+
 .meal_category_list {
   display: flex;
   flex-direction: column;
@@ -103,6 +107,28 @@ $meal_price_width: 40px;
 
 .meal_category {
   position: relative;
+
+  @for $i from 2 through $num-bars {
+    &--#{$i} {
+      animation-delay: $anim-delay * $i;
+    }
+  }
+
+  // 1- animation-name
+  // 2- animation-duration
+  // 3- animation-timing-function
+  // 4- animation-delay
+  // 5- animation-fill-mode
+  animation: meal_category_transition_top $anim-dur ease-in-out 0s both;
+
+  @keyframes meal_category_transition_top {
+    0% {
+      transform: translateY(40px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
 }
 
 .meal_category_name {
@@ -196,12 +222,12 @@ $meal_price_width: 40px;
   }
 
   @keyframes meal_item_transition_top {
-    0% {
-      transform: translateY(20px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+    // 0% {
+    //   transform: translateY(20px);
+    // }
+    // 100% {
+    //   transform: translateY(0px);
+    // }
   }
 
   @keyframes meal_cheched_rotate {

@@ -555,6 +555,21 @@ footer a {
 
 .meal_category {
   position: relative;
+  animation: meal_category_transition_top 500ms ease-in-out 0s both;
+}
+.meal_category--2 {
+  animation-delay: 400ms;
+}
+.meal_category--3 {
+  animation-delay: 600ms;
+}
+@keyframes meal_category_transition_top {
+  0% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .meal_category_name:before {
@@ -630,14 +645,7 @@ footer a {
 .meal_item:not(:hover) .meal_details {
   animation: meal_detail_transition_close 0.5s ease-out 0s both;
 }
-@keyframes meal_item_transition_top {
-  0% {
-    transform: translateY(20px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
+@keyframes meal_item_transition_top {}
 @keyframes meal_cheched_rotate {
   0% {
     transform: rotate(0deg);
