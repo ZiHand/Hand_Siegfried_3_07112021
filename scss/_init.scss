@@ -73,20 +73,50 @@ body {
   background: $default_gradian;
   border: 0px;
   border-radius: 15px;
-  height: 30px;
+  line-height: 30px;
   width: 250px;
   color: white;
   box-shadow: $shadow;
+  transform: scale(1.2, 1.2);
+
+  &::after {
+    content: "";
+    border-radius: 15px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: $shadow_hover;
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  &:hover {
+    animation: hover_light_transition 0.4s ease-in 0s both;
+  }
+
+  // Transition to showing the bigger shadow on hover
+  &:hover::after {
+    opacity: 1;
+  }
+
+  @keyframes hover_light_transition {
+    0% {
+      filter: brightness(100%);
+    }
+    100% {
+      filter: brightness(110%);
+    }
+  }
 }
 
 @mixin scaled_image {
   object-fit: cover;
   width: 100%;
   max-height: 200px;
-
-  // Only render when in viewport
-  // ovoid for now, compatibility issues
-  // content-visibility: auto;
 }
 
 @mixin restaurant_title_font {
@@ -108,6 +138,47 @@ body {
       right: 0;
       z-index: 99;
     }
+  }
+}
+
+@mixin heart_icon {
+  min-width: 30px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 30px;
+  margin: auto;
+
+  i {
+    font-size: 30px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:active,
+  &:hover {
+    & > .heart_icon_empty::before {
+      display: none;
+    }
+
+    & > .heart_icon_full::before {
+      display: block;
+      animation: fadeIn 0.4s ease-in 0s both;
+      background: $default_gradian;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .heart_icon_empty::before {
+    display: block;
+  }
+
+  .heart_icon_full::before {
+    display: none;
   }
 }
 
