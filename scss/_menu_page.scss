@@ -154,7 +154,7 @@ $anim-delay: 200ms;
 //                     meal_item
 // ====================================================
 // Tablet
-/*@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 991px) {
   $meal_content_width_close: 270px !global;
   $meal_content_width_open: 220px !global;
 }
@@ -165,11 +165,12 @@ $anim-delay: 200ms;
   $meal_content_width_open: 220px !global;
 }
 
+// ASK Pascal !!
 // Desktop
 @media only screen and (min-width: 991px) {
   //$meal_content_width_close: 390px !global;
   //$meal_content_width_open: 340px !global;
-}*/
+}
 
 .meal_item {
   display: flex;
@@ -218,6 +219,7 @@ $anim-delay: 200ms;
     }
   }
 
+  // ASK Pascal !!
   @keyframes meal_detail_transition_open {
     0% {
       min-width: $meal_content_width_close;
@@ -229,6 +231,7 @@ $anim-delay: 200ms;
     }
   }
 
+  // ASK Pascal !!
   @keyframes meal_detail_transition_close {
     0% {
       min-width: $meal_content_width_open;
