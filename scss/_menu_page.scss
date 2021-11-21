@@ -168,8 +168,8 @@ $anim-delay: 200ms;
 // ASK Pascal !!
 // Desktop
 @media only screen and (min-width: 991px) {
-  //$meal_content_width_close: 390px !global;
-  //$meal_content_width_open: 340px !global;
+  $meal_content_width_close: 390px !global;
+  $meal_content_width_open: 340px !global;
 }
 
 .meal_item {
@@ -247,18 +247,24 @@ $anim-delay: 200ms;
   @media only screen and (max-width: 991px) {
     margin-right: 20px;
     margin-left: 20px;
+
+    max-width: calc($meal_content_width_close + $meal_price_width);
   }
 
   // Mobile
   @media only screen and (max-width: 767px) {
     margin-right: 0px;
     margin-left: 0px;
+
+    max-width: calc($meal_content_width_close + $meal_price_width);
   }
 
   // Desktop
   @media only screen and (min-width: 991px) {
     margin-right: 17px;
     margin-left: 17px;
+
+    max-width: calc($meal_content_width_close + $meal_price_width);
   }
 }
 
