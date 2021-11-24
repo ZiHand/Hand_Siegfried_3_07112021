@@ -166,7 +166,7 @@ body {
       display: block;
       animation: fadeIn 0.4s ease-in 0s both;
       background: $default_gradian;
-      background-clip: text;
+      //background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }
