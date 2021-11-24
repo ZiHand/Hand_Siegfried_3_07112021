@@ -117,7 +117,8 @@ footer a {
 #logo_footer img {
   width: 20%;
   min-width: 80px;
-  filter: invert(100%) sepia(0%) saturate(7443%) hue-rotate(198deg) brightness(126%) contrast(112%);
+  filter: invert(100%) sepia(0%) saturate(7443%) hue-rotate(198deg)
+    brightness(126%) contrast(112%);
 }
 
 .footerline {
@@ -432,14 +433,17 @@ footer a {
 .rest_fig_icon i:hover {
   cursor: pointer;
 }
-.rest_fig_icon:active > .heart_icon_empty::before, .rest_fig_icon:hover > .heart_icon_empty::before {
+.rest_fig_icon:active > .heart_icon_empty::before,
+.rest_fig_icon:hover > .heart_icon_empty::before {
   display: none;
 }
-.rest_fig_icon:active > .heart_icon_full::before, .rest_fig_icon:hover > .heart_icon_full::before {
+.rest_fig_icon:active > .heart_icon_full::before,
+.rest_fig_icon:hover > .heart_icon_full::before {
   display: block;
   animation: fadeIn 0.4s ease-in 0s both;
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 .rest_fig_icon .heart_icon_empty::before {
   display: block;
@@ -519,13 +523,16 @@ footer a {
 .menu_header .rest_heart_icon i:hover {
   cursor: pointer;
 }
-.menu_header .rest_heart_icon:active > .heart_icon_empty::before, .menu_header .rest_heart_icon:hover > .heart_icon_empty::before {
+.menu_header .rest_heart_icon:active > .heart_icon_empty::before,
+.menu_header .rest_heart_icon:hover > .heart_icon_empty::before {
   display: none;
 }
-.menu_header .rest_heart_icon:active > .heart_icon_full::before, .menu_header .rest_heart_icon:hover > .heart_icon_full::before {
+.menu_header .rest_heart_icon:active > .heart_icon_full::before,
+.menu_header .rest_heart_icon:hover > .heart_icon_full::before {
   display: block;
   animation: fadeIn 0.4s ease-in 0s both;
   background: linear-gradient(355deg, #9356dc 8%, #ff79da 95%);
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .menu_header .rest_heart_icon .heart_icon_empty::before {
